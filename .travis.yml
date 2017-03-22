@@ -1,0 +1,19 @@
+language: csharp
+dist: trusty
+sudo: required
+mono: none
+dotnet: 1.0.0-preview2-003131
+
+before_script:
+- npm install -g serverless@1.9.0
+
+script:
+- "./build.sh --quiet verify"
+- dotnet test src/Tests
+
+deploy:
+- provider: script
+  skip_cleanup: true
+  script: "./deploy.sh"
+  on:
+    branch: master

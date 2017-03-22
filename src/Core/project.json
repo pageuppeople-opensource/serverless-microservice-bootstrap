@@ -1,0 +1,16 @@
+{
+  "title": "Serverless.Dotnet.Core",
+  "version": "1.0.0-*",
+
+  "dependencies": {    
+    "Autofac": "4.4.0",
+    "NETStandard.Library": "1.6.0"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  }
+}
+ 
