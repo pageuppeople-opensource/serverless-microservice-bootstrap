@@ -7,11 +7,11 @@ namespace Serverless.Dotnet.Handlers
     {
         protected IContainer Container;
 
-        public BaseHandler()
+        protected virtual IContainer BuildContainer()
         {
             var builder = new ContainerBuilder();
             builder.RegisterModule(new CoreAutofacModule());
-            Container = builder.Build();
+            return builder.Build();
         }
     }
 }

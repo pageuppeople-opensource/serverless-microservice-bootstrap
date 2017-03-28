@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using Serverless.Dotnet.Core;
 
 namespace Tests
@@ -13,9 +9,14 @@ namespace Tests
 
         public TestBase()
         {
+            Container = BuildContainer();
+        }
+
+        protected IContainer BuildContainer()
+        {
             var builder = new ContainerBuilder();
             builder.RegisterModule(new CoreAutofacModule());
-            Container = builder.Build();
+            return builder.Build();
         }
     }
 }

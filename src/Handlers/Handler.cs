@@ -9,6 +9,16 @@ namespace Serverless.Dotnet.Handlers
 {
     public class Handler : BaseHandler
     {
+        public Handler()
+        {
+            Container = BuildContainer();
+        }
+
+        public Handler(IContainer container)
+        {
+            Container = container;
+        }
+
         public Response Hello(Request request)
         {
             var serviceProcess = Container.Resolve<IServiceProcess>();
