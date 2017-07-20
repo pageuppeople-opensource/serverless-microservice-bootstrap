@@ -2,7 +2,7 @@ language: csharp
 dist: trusty
 sudo: required
 mono: none
-dotnet: 1.0.0-preview2-003131
+dotnet: 1.0.4
 
 before_script:
 - npm install -g serverless@1.9.0
