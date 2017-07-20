@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyTitle>Serverless.Dotnet.Handlers</AssemblyTitle>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <AssemblyName>Handlers</AssemblyName>
+    <PackageId>Handlers</PackageId>
+    <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Amazon.Lambda.Core" Version="1.0.0*" />
+    <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.0.0" />
+    <PackageReference Include="Amazon.Lambda.Tools" Version="1.0.0-preview1">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Autofac" Version="4.4.0" />
+    <PackageReference Include="Amazon.Lambda.APIGatewayEvents" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Amazon.Lambda.Tools" Version="0.9.0-preview1" />
+  </ItemGroup>
+
+</Project>
