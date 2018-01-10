@@ -1,7 +1,7 @@
 ﻿# Serverless Microservice Bootstrap
 
-[![serverless](https://dl.dropboxusercontent.com/s/d6opqwym91k0roz/serverless_badge_v3.svg)](http://www.serverless.com) 
-[![Build Status](https://travis-ci.org/PageUpPeopleOrg/serverless-microservice-template.svg?branch=master)](https://travis-ci.org/PageUpPeopleOrg/serverless-microservice-template)
+[![serverless](https://dl.dropboxusercontent.com/s/d6opqwym91k0roz/serverless_badge_v3.svg)](http://www.serverless.com)
+[![Build Status](https://travis-ci.org/PageUpPeopleOrg/serverless-microservice-bootstrap.svg?branch=making-it-relevant)](https://travis-ci.org/PageUpPeopleOrg/serverless-microservice-bootstrap)
 
 This is a serverless framework template project for creating microservices using microsoft dotnet core.
 
