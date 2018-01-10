@@ -11,14 +11,14 @@ provider:
 
 # you can add packaging information here
 package:
-  artifact: src/Handlers/bin/release/netcoreapp1.0/publish/deploy-package.zip
+  artifact: Handlers/bin/release/netstandard1.6/publish/deploy-package.zip
 
 functions:
   hello:
-    handler: Handlers::Serverless.Dotnet.Handlers.Handler::Hello
+    handler: Handlers::Handlers.Handler::Hello
 
   healthcheck:
-    handler: Handlers::Serverless.Dotnet.Handlers.Handler::HealthCheck
+    handler: Handlers::Handlers.Handler::HealthCheck
     events:
       - http:
           path: healthcheck
