@@ -1,25 +1,19 @@
-# Serverless.DotnetCore.Template
+# Serverless Microservice Bootstrap
+
 [![serverless](https://dl.dropboxusercontent.com/s/d6opqwym91k0roz/serverless_badge_v3.svg)](http://www.serverless.com) 
+[![Build Status](https://travis-ci.org/PageUpPeopleOrg/serverless-microservice-template.svg?branch=master)](https://travis-ci.org/PageUpPeopleOrg/serverless-microservice-template)
 
-This is a serverless framework template project created for VS2017.
+This is a serverless framework template project for creating microservices using microsoft dotnet core.
 
-## Installation
+## Getting Started
 
 Make sure you have the [Serverless Framework](http://www.serverless.com) installed.
 ```
 npm install serverless -g
 ```
 
-Install dotnetcore on your machine. If you encounter issues with VS2015, visit the following url to install the appropriate version of dotnetcore sdk.
-https://github.com/aspnet/Tooling/blob/master/known-issues-vs2015.md
+Install dotnet core on your machine. Instructions can be found at (dotnet website)[https://www.microsoft.com/net/download]
 
-
-## Setup
-
-Setup your AWS Credentials in your local environment
-```
-aws configure
-```
 
 ## Build
 
@@ -43,6 +37,3 @@ dotnet test .\src\Tests
 ```
 serverless deploy
 ```
-
-
-
