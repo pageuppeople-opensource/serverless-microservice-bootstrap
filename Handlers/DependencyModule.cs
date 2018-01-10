@@ -1,8 +1,10 @@
 ﻿using System.IO;
 using Amazon.Lambda.Core;
 using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Domain;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace Handlers
@@ -24,14 +26,11 @@ namespace Handlers
 
             var configuration = configBuilder.Build();
 
+            var services = new ServiceCollection().AddLogging();
 
-            var loggerFactory = new LoggerFactory();
-            builder.RegisterType<LoggerFactory>()
-                .As<ILoggerFactory>()
-                .SingleInstance();
-            builder.RegisterType(typeof(Logger<>))
-                .As(typeof(ILogger<>))
-                .SingleInstance();
+            builder.Populate(services);
+
+            var loggerFactory = services.BuildServiceProvider().GetService<ILoggerFactory>();
 
             return loggerFactory.AddAWSProvider(configuration.GetAWSLoggingConfigSection());
         }
