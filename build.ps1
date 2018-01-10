@@ -7,14 +7,14 @@ function ZipFiles( $zipfilename, $sourcedir )
         $zipfilename, $compressionLevel, $false)
 }
 
-$handlersDirectory = "src/Handlers"
+$handlersDirectory = "Handlers"
 
 dotnet restore
 dotnet publish -c release "$handlersDirectory"
 
 if ($LASTEXITCODE -ne 0) { return }
 
-$publishDirectory = "$handlersDirectory/bin/release/netcoreapp1.0/publish"
+$publishDirectory = "$handlersDirectory/bin/release/netstandard1.6/publish"
 $packageName = "deploy-package.zip"
 
 rm "$publishDirectory/$packageName" -ErrorAction SilentlyContinue

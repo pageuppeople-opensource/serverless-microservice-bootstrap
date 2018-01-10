@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <DebugType>portable</DebugType>
+    <AssemblyName>Tests</AssemblyName>
+    <PackageId>Tests</PackageId>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <PackageTargetFallback>$(PackageTargetFallback);dotnet5.4;portable-net451+win8</PackageTargetFallback>
+    <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="NSubstitute" Version="3.1.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+    <PackageReference Include="Amazon.Lambda.TestUtilities" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Handlers\Handlers.csproj" />
+  </ItemGroup>
+
+</Project>
