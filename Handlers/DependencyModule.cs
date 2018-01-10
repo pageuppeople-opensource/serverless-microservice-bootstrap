@@ -18,7 +18,7 @@ namespace Handlers
             this.lambdaContext = lambdaContext;
         }
 
-        private ILoggerFactory CreateLoggerFactory(ContainerBuilder builder)
+        private void ConfigureLogging(ContainerBuilder builder)
         {
             var configBuilder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -32,7 +32,7 @@ namespace Handlers
 
             var loggerFactory = services.BuildServiceProvider().GetService<ILoggerFactory>();
 
-            return loggerFactory.AddAWSProvider(configuration.GetAWSLoggingConfigSection());
+            loggerFactory.AddAWSProvider(configuration.GetAWSLoggingConfigSection());
         }
 
         protected override void Load(ContainerBuilder builder)
@@ -41,9 +41,7 @@ namespace Handlers
 
             builder.RegisterInstance(lambdaContext);
 
-            var loggerFactory = CreateLoggerFactory(builder);
-
-            builder.RegisterInstance(loggerFactory).SingleInstance();
+            ConfigureLogging(builder);
 
             builder.RegisterType<DomainService>().As<IDomainService>().SingleInstance();
         }
