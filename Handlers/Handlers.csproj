@@ -4,17 +4,17 @@
     <TargetFramework>netstandard1.6</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.4.0" />
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="Amazon.Lambda.Core" Version="1.0.0*" />
     <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.0.0" />
-    <PackageReference Include="Autofac" Version="4.6.1" />
     <PackageReference Include="Amazon.Lambda.APIGatewayEvents" Version="1.0.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.2" />
     <PackageReference Include="AWS.Logger.AspNetCore" Version="1.2.4" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DomainService\DomainService.csproj" />
+    <ProjectReference Include="..\DomainService\Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">

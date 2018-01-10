@@ -2,7 +2,8 @@
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
 using Autofac;
-using DomainService;
+using Domain;
+using Microsoft.Extensions.Logging;
 
 namespace Handlers
 {
@@ -23,9 +24,10 @@ namespace Handlers
 
         public APIGatewayProxyResponse HealthCheck(APIGatewayProxyRequest request, ILambdaContext context)
         {
-            var logger = context.Logger;
-            logger.LogLine(context.FunctionName);
-            logger.LogLine(request.HttpMethod);
+            var logger = GetContainer(context).Resolve<ILogger<Handler>>();
+
+            logger.LogTrace("Function name is {0}", context.FunctionName);
+            logger.LogTrace("Http method is {0}", request.HttpMethod);
 
             return new APIGatewayProxyResponse()
             {

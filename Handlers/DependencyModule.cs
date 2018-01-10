@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Amazon.Lambda.Core;
 using Autofac;
-using DomainService;
+using Domain;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
@@ -16,16 +16,24 @@ namespace Handlers
             this.lambdaContext = lambdaContext;
         }
 
-        private void ConfigureLogging()
+        private ILoggerFactory CreateLoggerFactory(ContainerBuilder builder)
         {
-            var builder = new ConfigurationBuilder()
+            var configBuilder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json");
 
-            var configuration = builder.Build();
+            var configuration = configBuilder.Build();
 
-            ILoggerFactory loggerFactory = new LoggerFactory();
-            loggerFactory.AddAWSProvider(configuration.GetAWSLoggingConfigSection());
+
+            var loggerFactory = new LoggerFactory();
+            builder.RegisterType<LoggerFactory>()
+                .As<ILoggerFactory>()
+                .SingleInstance();
+            builder.RegisterType(typeof(Logger<>))
+                .As(typeof(ILogger<>))
+                .SingleInstance();
+
+            return loggerFactory.AddAWSProvider(configuration.GetAWSLoggingConfigSection());
         }
 
         protected override void Load(ContainerBuilder builder)
@@ -34,9 +42,11 @@ namespace Handlers
 
             builder.RegisterInstance(lambdaContext);
 
-            ConfigureLogging();
+            var loggerFactory = CreateLoggerFactory(builder);
 
-            builder.RegisterType<DomainService.DomainService>().As<IDomainService>().SingleInstance();
+            builder.RegisterInstance(loggerFactory).SingleInstance();
+
+            builder.RegisterType<DomainService>().As<IDomainService>().SingleInstance();
         }
     }
 }

@@ -1,5 +1,7 @@
-﻿using DomainService;
+﻿using Domain;
 using Xunit;
+using NSubstitute;
+using Microsoft.Extensions.Logging;
 
 namespace Tests
 {
@@ -8,7 +10,7 @@ namespace Tests
         [Fact]
         public void Test1()
         {
-            var service = new DomainService.DomainService();
+            var service = new DomainService(Substitute.For<ILogger<DomainService>>());
 
             var result = service.Process(new Request());
 
