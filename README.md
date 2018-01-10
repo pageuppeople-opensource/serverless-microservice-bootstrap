@@ -34,6 +34,21 @@ dotnet test .\src\Tests
 ```
 
 ## Deploy
+
+### Continous deployment with Travis
+The repository is configured for continous deployment with Travis. Refer to the include `.travis.yml` file.
+For the purpose of templating, deployment section has been commented out. Please uncomment the following lines in `.travis.yml`.
+
+```
+deploy:
+- provider: script
+  skip_cleanup: true
+  script: "./deploy.sh"
+  on:
+    branch: master
+```
+
+### To deploy from the command line
 ```
 serverless deploy
 ```
