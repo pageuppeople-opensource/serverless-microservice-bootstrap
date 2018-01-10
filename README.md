@@ -83,7 +83,7 @@ functions:
 
 Bootstrap includes a healthcheck endpoint for which the get endpoint will be written console, refer to the deploy output above. A simple curl command like below should verify the deployment.
 
-``curl -i https://xxxxxxxx.execute-api.ap-southeast-2.amazonaws.com/v1/healthcheck`
+``curl -i https://xxxxxxxx.execute-api.ap-southeast-2.amazonaws.com/v1/healthcheck``
 
 *Output should be similar to*
 
