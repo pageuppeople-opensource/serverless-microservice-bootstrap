@@ -7,7 +7,7 @@ function ZipFiles( $zipfilename, $sourcedir )
         $zipfilename, $compressionLevel, $false)
 }
 
-$handlersDirectory = "src/Handlers"
+$handlersDirectory = "Handlers"
 
 dotnet restore
 dotnet publish -c release "$handlersDirectory"

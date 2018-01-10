@@ -2,26 +2,22 @@
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
 using Autofac;
-using Serverless.Dotnet.Core;
-using Serverless.Dotnet.Core.Model;
+using DomainService;
 
-namespace Serverless.Dotnet.Handlers
+namespace Handlers
 {
-    public class Handler : BaseHandler
+    public class Handler
     {
-        public Handler()
+        private static IContainer GetContainer(ILambdaContext lambdaContext)
         {
-            Container = BuildContainer();
+            var builder = new ContainerBuilder();
+            builder.RegisterModule(new DependencyModule(lambdaContext));
+            return builder.Build();
         }
 
-        public Handler(IContainer container)
+        public Response Hello(Request request, ILambdaContext context)
         {
-            Container = container;
-        }
-
-        public Response Hello(Request request)
-        {
-            var serviceProcess = Container.Resolve<IServiceProcess>();
+            var serviceProcess = GetContainer(context).Resolve<IDomainService>();
             return serviceProcess.Process(request);
         }
 

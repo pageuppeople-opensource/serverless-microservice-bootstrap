@@ -8,7 +8,7 @@ before_script:
 
 script:
 - "./build.sh --quiet verify"
-- dotnet test src/Tests
+- dotnet test Tests/Tests.csproj
 
 deploy:
 - provider: script
