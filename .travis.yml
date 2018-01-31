@@ -1,10 +1,10 @@
 language: csharp
 dist: trusty
 mono: none
-dotnet: 1.0.4
+dotnet: 2.0
 
 before_script:
-- npm install -g serverless@1.9.0
+- npm install -g serverless
 
 script:
 - "./build.sh --quiet verify"
