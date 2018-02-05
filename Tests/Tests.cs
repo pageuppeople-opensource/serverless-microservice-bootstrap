@@ -8,7 +8,7 @@ namespace Tests
     public class Tests
     {
         [Fact]
-        public void Test1()
+        public void TestResult()
         {
             var service = new DomainService(Substitute.For<ILogger<DomainService>>());
 

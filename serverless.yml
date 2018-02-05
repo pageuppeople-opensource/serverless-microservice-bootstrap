@@ -11,7 +11,7 @@ provider:
 
 # you can add packaging information here
 package:
-  artifact: Handlers/bin/release/netstandard2.0/publish/deploy-package.zip
+  artifact: Handlers/bin/release/netcoreapp2.0/publish/deploy-package.zip
 
 functions:
   hello:
