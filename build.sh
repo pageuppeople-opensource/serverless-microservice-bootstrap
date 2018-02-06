@@ -2,6 +2,7 @@
 
 HANDLERS_DIR=Handlers
 #build handlers
+dotnet restore
 dotnet publish -c release $HANDLERS_DIR
 
 #install zip

@@ -9,6 +9,7 @@ function ZipFiles( $zipfilename, $sourcedir )
 
 $handlersDirectory = "Handlers"
 
+dotnet restore
 dotnet publish -c release "$handlersDirectory"
 
 if ($LASTEXITCODE -ne 0) { return }
