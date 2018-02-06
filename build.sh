@@ -10,6 +10,6 @@ apt-get -qq update
 apt-get -qq -y install zip
 
 #create deployment package
-pushd $HANDLERS_DIR/bin/release/netstandard1.6/publish
+pushd $HANDLERS_DIR/bin/release/netcoreapp2.0/publish
 zip -r ./deploy-package.zip ./*
 popd

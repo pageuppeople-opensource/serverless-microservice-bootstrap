@@ -2,7 +2,7 @@ service: serverless-microservice-bootstrap
 
 provider:
   name: aws
-  runtime: dotnetcore1.0
+  runtime: dotnetcore2.0
 
 # you can overwrite defaults here
   stage: v1
@@ -11,7 +11,7 @@ provider:
 
 # you can add packaging information here
 package:
-  artifact: Handlers/bin/release/netstandard1.6/publish/deploy-package.zip
+  artifact: Handlers/bin/release/netcoreapp2.0/publish/deploy-package.zip
 
 functions:
   hello:

@@ -245,4 +245,6 @@ _Pvt_Extensions
 # Serverless directories
 .serverless
 
+# Visual Studio Code
+.vscode
 
