@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Serverless.Microservice.Bootstrap</id>
+    <version>1.0.0</version>
+    <title>Serverless Microservice Bootstrap</title>
+    <authors>PageUp</authors>
+    <description>Serverless framework template project for creating microservices using microsoft dotnet core.</description>
+    <tags>Serverless Microservice Bootstrap AWS Lambda</tags>
+    <projectUrl>https://github.com/PageUpPeopleOrg/serverless-microservice-bootstrap</projectUrl>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+    <!-- dependencies>
+      <dependency id="Microsoft.TemplateEngine.Orchestrator.RunnableProjects" version="1.0.0-beta1-*" />
+    </dependencies -->
+  </metadata>
+  <files>
+    <file src="content/**" exclude="**\bin\**\*;**\obj\**\*;**\*.user;**\*.lock.json" />
+  </files>
+</package>
