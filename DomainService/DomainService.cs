@@ -4,15 +4,15 @@ namespace Domain
 {
     public class DomainService: IDomainService
     {
-        private readonly ILogger<DomainService> logger;
+        private readonly ILogger<DomainService> _logger;
 
         public DomainService(ILogger<DomainService> logger)
         {
-            this.logger = logger;
+            _logger = logger;
         }
         public Response Process(Request request)
         {
-            logger.LogTrace("Processing request: {0}", request);
+            _logger.LogInformation("Processing request: {0}", request);
             return new Response
             {
                 Message = "It worked!"
