@@ -12,7 +12,7 @@ Make sure you have the [Serverless Framework](http://www.serverless.com) install
 npm install serverless -g
 ```
 
-Install dotnet core on your machine. Instructions can be found at (dotnet website)[https://www.microsoft.com/net/download]
+Install dotnet core on your machine. Instructions can be found at [dotnet website](https://www.microsoft.com/net/download)
 
 
 ## Build
